@@ -1,8 +1,18 @@
 class MaxIntSet
   def initialize(max)
+    @store = Array.new(max)
   end
 
   def insert(num)
+    counter = 0 
+    @store.each.with_index do |ele, idx|
+      if ele.nil? || counter == 0 
+        @store[idx] = num 
+        counter += 1 
+        return true 
+      end 
+    end 
+    return false 
   end
 
   def remove(num)
